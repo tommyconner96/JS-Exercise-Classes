@@ -178,10 +178,22 @@ constructor({name, age, location, previousBackground, className,favSubjects}){
   this.className = className
   this.favSubjects = favSubjects
 }
+
+listSubjects(){
+var subjectList = this.favSubjects.join()
+return `Loving ${subjectList}`
 }
-Student.prototype.listSubjects = (subjects) => {
-  return `Loving ${this.favSubjects.join}`
+
+PRAssignment(subject){
+return `${this.name} has submitted a PR for ${subject}`
 }
+
+sprintChallenge(subject){
+  return `${this.name} has begun sprint challenge on ${subject}`
+}
+
+}
+
 
 /*
   TASK 6
@@ -196,7 +208,19 @@ Student.prototype.listSubjects = (subjects) => {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor {
+  constructor({name,age,location,specialty,favLanguage,catchPhrase,gradClassName,favInstructor}){
+    super({name,age,location, specialty,favLanguage,catchPhrase})
+    this.gradClassName = gradClassName
+    this.favInstructor = favInstructor    
+}
+standUp(channel) {
+  return `${this.name} announces to ${channel}, @${channel} standy times!`
+}
+
+debugsCode(student, subject) {
+  return `${this.name} debugs ${student.name}'s code on ${subject}`
+}
 
 }
 
